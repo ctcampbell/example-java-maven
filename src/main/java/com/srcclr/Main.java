@@ -11,8 +11,10 @@ public class Main {
 
   public static void main(String[] args) throws Exception {
     String candidate = args[0];
+    // Vulnerable method call 1
     String hashed = BCrypt.hashpw(candidate, BCrypt.gensalt(12));
 
+    // Vulnerable method call 2
     BCrypt.checkpw(candidate, hashed);
 
     filterXMLSignature();
